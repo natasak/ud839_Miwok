@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Find the View that shows the correct category
         TextView numbers = (TextView) findViewById(R.id.numbers);
-        TextView phrases = (TextView) findViewById(R.id.phrases);
-        TextView family = (TextView) findViewById(R.id.family);
-        TextView colors = (TextView) findViewById(R.id.colors);
 
         // Longer version:
         // NumbersClickListener clickListener = new NumbersClickListener();
@@ -56,25 +53,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Set a click listener on that View
-        phrases.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the phrases View is clicked on.
-            @Override
-            public void onClick(View view) {
-                //create a new intent to open the {@NumbersActivity}
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
-
-                //Start the new activity
-                startActivity(phrasesIntent);
-            }
-        });
+        TextView family = (TextView) findViewById(R.id.family);
 
         //Set a click listener on that View (even shorter in one file)
         family.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers View is clicked on.
+            // The code in this method will be executed when the family View is clicked on.
             @Override
             public void onClick(View view) {
-                //create a new intent to open the {@NumbersActivity}
+                //create a new intent to open the {@FamilyActivity}
                 Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
 
                 //Start the new activity
@@ -82,22 +68,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        TextView colors = (TextView) findViewById(R.id.colors);
+
         //Set a click listener on that View (even shorter in one file)
         colors.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers View is clicked on.
+            // The code in this method will be executed when the colors View is clicked on.
             @Override
             public void onClick(View view) {
-                //create a new intent to open the {@NumbersActivity}
+                //create a new intent to open the {@ColorsActivity}
                 Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
 
                 //Start the new activity
                 startActivity(colorsIntent);
             }
         });
+
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+
+        //Set a click listener on that View
+        phrases.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases View is clicked on.
+            @Override
+            public void onClick(View view) {
+                //create a new intent to open the {@PhrasesActivity}
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+
+                //Start the new activity
+                startActivity(phrasesIntent);
+            }
+        });
     }
 
-    public void openNumbersList(View view) {
-        Intent i = new Intent(this, NumbersActivity.class);
-        startActivity(i);
-    }
 }
