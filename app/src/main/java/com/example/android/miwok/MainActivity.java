@@ -15,15 +15,89 @@
  */
 package com.example.android.miwok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
+        // Find the View that shows the correct category
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+        TextView family = (TextView) findViewById(R.id.family);
+        TextView colors = (TextView) findViewById(R.id.colors);
+
+        // Longer version:
+        // NumbersClickListener clickListener = new NumbersClickListener();
+        // numbers.setOnClickListener(clickListener);
+        //
+        // Shorter version:
+        // numbers.setOnClickListener(new NumbersClickListener());
+        //
+        //Set a click listener on that View (even shorter in one file)
+        numbers.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                //create a new intent to open the {@NumbersActivity}
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+
+                //Start the new activity
+                startActivity(numbersIntent);
+            }
+        });
+
+        //Set a click listener on that View
+        phrases.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases View is clicked on.
+            @Override
+            public void onClick(View view) {
+                //create a new intent to open the {@NumbersActivity}
+                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+
+                //Start the new activity
+                startActivity(phrasesIntent);
+            }
+        });
+
+        //Set a click listener on that View (even shorter in one file)
+        family.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                //create a new intent to open the {@NumbersActivity}
+                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+
+                //Start the new activity
+                startActivity(familyIntent);
+            }
+        });
+
+        //Set a click listener on that View (even shorter in one file)
+        colors.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                //create a new intent to open the {@NumbersActivity}
+                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+
+                //Start the new activity
+                startActivity(colorsIntent);
+            }
+        });
+    }
+
+    public void openNumbersList(View view) {
+        Intent i = new Intent(this, NumbersActivity.class);
+        startActivity(i);
     }
 }
